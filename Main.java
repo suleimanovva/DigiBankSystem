@@ -15,7 +15,17 @@ public class Main {
         CryptoService externalCryptoSystem = new CryptoService();
         DigitalBankingSystem adapter = new CryptoAdapter(externalCryptoSystem);
         
-      
+        // Process a fiat payment of $1000, adapter handles crypto conversion implicitly
         adapter.processPayment(1000.0);
+
+        System.out.println("\n--- 4. FACTORY TEST ---");
+        TransportFactory factory = new TransportFactory();
+        
+        // Factory creates different objects without exposing instantiation logic
+        Transport myBus = factory.createTransport("BUS");
+        if (myBus != null) myBus.startRoute();
+
+        Transport myMetro = factory.createTransport("METRO");
+        if (myMetro != null) myMetro.startRoute();
     }
 }
