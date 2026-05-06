@@ -37,7 +37,6 @@ public class Main {
             armoredWifiBus.startRoute();
         }
 
-        // ВСТАВИЛИ СЮДА - ВНУТРЬ МЕТОДА MAIN!
         System.out.println("\n--- 5. COMMAND TEST ---");
         // Create the receiver
         StreetLight downtownLights = new StreetLight("Downtown Area");
@@ -55,5 +54,16 @@ public class Main {
         
         remote.setCommand(lightsOff);
         remote.pressButton(); // Simulating morning time
+
+        // ВСТАВИЛИ СЮДА - ДО ПОСЛЕДНИХ ДВУХ СКОБОК!
+        System.out.println("\n--- 6. TEMPLATE METHOD TEST ---");
+        DailyRoutineTemplate lightingRoutine = new LightingScheduleRoutine();
+        DailyRoutineTemplate securityRoutine = new SecurityCheckRoutine();
+
+        System.out.println("Executing Lighting Routine:");
+        lightingRoutine.executeRoutine();
+
+        System.out.println("Executing Security Routine:");
+        securityRoutine.executeRoutine();
     }
 }
