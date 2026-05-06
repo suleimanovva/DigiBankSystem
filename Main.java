@@ -55,7 +55,6 @@ public class Main {
         remote.setCommand(lightsOff);
         remote.pressButton(); // Simulating morning time
 
-        // ВСТАВИЛИ СЮДА - ДО ПОСЛЕДНИХ ДВУХ СКОБОК!
         System.out.println("\n--- 6. TEMPLATE METHOD TEST ---");
         DailyRoutineTemplate lightingRoutine = new LightingScheduleRoutine();
         DailyRoutineTemplate securityRoutine = new SecurityCheckRoutine();
@@ -65,5 +64,22 @@ public class Main {
 
         System.out.println("Executing Security Routine:");
         securityRoutine.executeRoutine();
+
+        // БОНУСНОЕ ЗАДАНИЕ ВСТАВЛЕНО СЮДА — ВНУТРЬ MAIN!
+        System.out.println("\n--- 7. BONUS TASK (10 POINTS): TXT EXPORT & OBSERVER ---");
+        // 1. Create the monitor and email service
+        FileExportMonitor fileMonitor = new FileExportMonitor();
+        EmailNotificationService emailAlert = new EmailNotificationService("nigara.suleimanova@ostim.edu.tr");
+        
+        // 2. Attach observer to monitor
+        fileMonitor.addObserver(emailAlert);
+        
+        // 3. Register a few users
+        fileMonitor.registerUser(new User("John Doe"));
+        fileMonitor.registerUser(new User("Alice Smith"));
+        fileMonitor.registerUser(new User("Bob Crypto"));
+        
+        // 4. Trigger the export (This will create the txt file and trigger the email)
+        fileMonitor.exportUserData();
     }
 }
