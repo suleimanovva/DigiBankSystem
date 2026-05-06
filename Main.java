@@ -69,7 +69,7 @@ public class Main {
         System.out.println("\n--- 7. BONUS TASK (10 POINTS): TXT EXPORT & OBSERVER ---");
         // 1. Create the monitor and email service
         FileExportMonitor fileMonitor = new FileExportMonitor();
-        EmailNotificationService emailAlert = new EmailNotificationService("nigara.suleimanova@ostim.edu.tr");
+        EmailNotificationService emailAlert = new EmailNotificationService("nigaraazamatovna@gmail.com");
         
         // 2. Attach observer to monitor
         fileMonitor.addObserver(emailAlert);
