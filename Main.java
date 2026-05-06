@@ -36,5 +36,24 @@ public class Main {
             System.out.println("Deploying a fully upgraded bus:");
             armoredWifiBus.startRoute();
         }
+
+        // ВСТАВИЛИ СЮДА - ВНУТРЬ МЕТОДА MAIN!
+        System.out.println("\n--- 5. COMMAND TEST ---");
+        // Create the receiver
+        StreetLight downtownLights = new StreetLight("Downtown Area");
+        
+        // Create the commands
+        Command lightsOn = new TurnOnLightCommand(downtownLights);
+        Command lightsOff = new TurnOffLightCommand(downtownLights);
+        
+        // Create the invoker (Remote control)
+        CityAutomationRemote remote = new CityAutomationRemote();
+        
+        // Execute commands
+        remote.setCommand(lightsOn);
+        remote.pressButton(); // Simulating night time
+        
+        remote.setCommand(lightsOff);
+        remote.pressButton(); // Simulating morning time
     }
 }
